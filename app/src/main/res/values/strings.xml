@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">BKD0708K11</string>
     <string name="hello_world">Xin chào thế giới</string>
+    <string name="text_1">Text 1</string>
+    <string name="signup">SignUp</string>
+    <string name="phone">Phone</string>
+    <string name="user_name">Username</string>
+    <string name="full_name">Fullname</string>
+    <string name="password">Password</string>
+    <string name="submit">Submit</string>
 </resources>
