@@ -7,13 +7,16 @@
         <entry key="app/src/main/res/drawable/btn_style.xml" value="0.4822916666666667" />
         <entry key="app/src/main/res/drawable/edit_text_style.xml" value="0.4822916666666667" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.4588541666666667" />
+        <entry key="app/src/main/res/layout-land/activity_signup.xml" value="0.3747795414462081" />
+        <entry key="app/src/main/res/layout-sw600dp/activity_signup.xml" value="0.33203125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.40398550724637683" />
         <entry key="app/src/main/res/layout/activity_second.xml" value="0.40398550724637683" />
-        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.39719202898550726" />
+        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.3101449275362319" />
         <entry key="app/src/main/res/layout/demo_constraint_layout.xml" value="0.4661458333333333" />
         <entry key="app/src/main/res/layout/demo_frame_layout.xml" value="0.4661458333333333" />
         <entry key="app/src/main/res/layout/demo_linear_layout.xml" value="0.20989583333333334" />
         <entry key="app/src/main/res/layout/demo_realtivea_layout.xml" value="0.4661458333333333" />
+        <entry key="app/src/main/res/layout/demo_table_layout.xml" value="0.389945652173913" />
       </map>
     </option>
   </component>
