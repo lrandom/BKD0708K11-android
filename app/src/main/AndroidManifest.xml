@@ -9,9 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BKD0708K11">
-
         <activity
-            android:name=".ActivitySignup"
+            android:name=".Activity2"
+            android:exported="false" />
+        <activity
+            android:name=".Activity1"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,15 +21,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".ActivityDemoText"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".ActivitySignup"
+            android:exported="true" />
         <activity
             android:name=".SecondActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
+        <activity android:name=".ManuallyActivity" />
     </application>
 
 </manifest>
