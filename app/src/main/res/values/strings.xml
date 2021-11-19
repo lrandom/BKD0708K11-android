@@ -25,4 +25,8 @@
         remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
         and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
     </string>
+    <string name="next">Next</string>
+    <string name="confirm">Confirm</string>
+    <string name="welcome">Welcome</string>
+    <string name="signup_success">Signup Success</string>
 </resources>

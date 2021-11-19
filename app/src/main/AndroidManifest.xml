@@ -10,15 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BKD0708K11">
         <activity
-            android:name=".ActivityTwo"
+            android:name=".ActivitySuccess"
             android:exported="false" />
-
         <activity
-            android:name=".ActivityOne"
+            android:name=".ActivityConfirmInfo"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySignup"
             android:exported="true">
             <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER"></category>
                 <action android:name="android.intent.action.MAIN"></action>
+                <category android:name="android.intent.category.LAUNCHER"></category>
             </intent-filter>
         </activity>
     </application>
