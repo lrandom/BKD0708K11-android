@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void openWebsite(View v) {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://google.com.vn"));
+        intent.putExtra("extra_data", "search engine");
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
