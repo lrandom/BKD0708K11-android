@@ -10,19 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BKD0708K11">
         <activity
-            android:name=".ActivitySuccess"
-            android:exported="false" />
-        <activity
-            android:name=".ActivityConfirmInfo"
-            android:exported="false" />
-        <activity
-            android:name=".ActivitySignup"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"></action>
-                <category android:name="android.intent.category.LAUNCHER"></category>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
 
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW"></action>
+            <data android:scheme="https" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.SENDTO"></action>
+            <data android:scheme="smsto" />
+        </intent>
+    </queries>
 </manifest>
