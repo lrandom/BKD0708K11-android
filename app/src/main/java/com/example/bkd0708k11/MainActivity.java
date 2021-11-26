@@ -13,32 +13,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        test1();
+
+        System.out.println("hello");
+
+        test2();
     }
 
-
-    public void openWebsite(View v) {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://google.com.vn"));
-        intent.putExtra("extra_data", "search engine");
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
+    public void test1() {
+        for (int i = 0; i < 5; i++) {
+            System.out.println(i);
         }
     }
 
-    public void callPhone(View v) {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:0868232837"));
-        startActivity(intent);
-    }
-
-    public void sendSMS(View v) {
-        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:0856758675"));
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            intent.putExtra("sms_body", "hello");
-            startActivity(intent);
+    public void test2() {
+        for (int j = 0; j < 5; j++) {
+            System.out.println(j);
         }
-    }
-
-    public void openMap(View v) {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:21.027268766769954, 105.8094713498643"));
-        startActivity(intent);
     }
 }
