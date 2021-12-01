@@ -16,13 +16,13 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:padding="5dp"
-        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:onClick="getButtonNumberValue"
         android:id="@+id/btnNumberOne"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -36,6 +36,7 @@
         app:layout_constraintTop_toBottomOf="@+id/edtShowResult" />
 
     <Button
+        android:onClick="getButtonNumberValue"
         android:id="@+id/btnNumberTwo"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -48,6 +49,7 @@
         app:layout_constraintStart_toEndOf="@+id/btnNumberOne" />
 
     <Button
+        android:onClick="getButtonNumberValue"
         android:id="@+id/btnNumberFive"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -62,6 +64,7 @@
         app:layout_constraintStart_toEndOf="@+id/btnNumberFour" />
 
     <Button
+        android:onClick="getButtonNumberValue"
         android:id="@+id/btnNumberThree"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -74,6 +77,7 @@
         app:layout_constraintStart_toEndOf="@+id/btnNumberTwo" />
 
     <Button
+        android:onClick="getButtonNumberValue"
         android:id="@+id/btnNumberFour"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -86,6 +90,7 @@
         app:layout_constraintStart_toEndOf="@+id/btnNumberThree" />
 
     <Button
+        android:onClick="getButtonNumberValue"
         android:id="@+id/btnNumberSix"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -99,6 +104,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnNumberOne" />
 
     <Button
+        android:onClick="getButtonNumberValue"
         android:id="@+id/btnNumberSeven"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -111,6 +117,7 @@
         app:layout_constraintStart_toEndOf="@+id/btnNumberSix" />
 
     <Button
+        android:onClick="getButtonNumberValue"
         android:id="@+id/btnNumberEight"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -127,6 +134,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:backgroundTint="@color/white"
+        android:onClick="calc"
         android:text="="
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -136,6 +144,7 @@
         app:layout_constraintStart_toEndOf="@+id/btnNumberNine" />
 
     <Button
+        android:onClick="getButtonNumberValue"
         android:id="@+id/btnNumberNine"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -154,6 +163,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="@color/white"
+        android:onClick="getOperationName"
         android:text="+"
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -166,6 +176,7 @@
         android:layout_height="60dp"
         android:layout_marginStart="12dp"
         android:backgroundTint="@color/white"
+        android:onClick="getOperationName"
         android:text="-"
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -178,6 +189,7 @@
         android:layout_height="60dp"
         android:layout_marginStart="12dp"
         android:backgroundTint="@color/white"
+        android:onClick="getOperationName"
         android:text="*"
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -190,6 +202,7 @@
         android:layout_height="60dp"
         android:layout_marginStart="12dp"
         android:backgroundTint="@color/white"
+        android:onClick="getOperationName"
         android:text="/"
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -202,6 +215,7 @@
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
         android:backgroundTint="@color/white"
+        android:onClick="clear"
         android:text="CLR"
         android:textColor="@color/black"
         android:textSize="12sp"
