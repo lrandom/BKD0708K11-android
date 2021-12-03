@@ -1,226 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@color/primary">
+    android:background="@color/primary"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/edtShowResult"
-        android:layout_width="347dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="204dp"
-        android:background="@drawable/bg_show_result"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:padding="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.437"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:src="@drawable/ic_play">
+    </ImageButton>
 
-    <Button
-        android:onClick="getButtonNumberValue"
-        android:id="@+id/btnNumberOne"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="28dp"
-        android:backgroundTint="@color/white"
-        android:text="1"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtShowResult" />
+    <ImageView
+        android:id="@+id/imgView"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:onClick="tapOnImage"
+        android:scaleType="fitXY"
+        android:src="@drawable/cascade_falling" />
 
-    <Button
-        android:onClick="getButtonNumberValue"
-        android:id="@+id/btnNumberTwo"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="12dp"
-        android:backgroundTint="@color/white"
-        android:text="2"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnNumberOne"
-        app:layout_constraintStart_toEndOf="@+id/btnNumberOne" />
-
-    <Button
-        android:onClick="getButtonNumberValue"
-        android:id="@+id/btnNumberFive"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/white"
-        android:text="5"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnNumberFour"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.411"
-        app:layout_constraintStart_toEndOf="@+id/btnNumberFour" />
-
-    <Button
-        android:onClick="getButtonNumberValue"
-        android:id="@+id/btnNumberThree"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="12dp"
-        android:backgroundTint="@color/white"
-        android:text="3"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnNumberTwo"
-        app:layout_constraintStart_toEndOf="@+id/btnNumberTwo" />
-
-    <Button
-        android:onClick="getButtonNumberValue"
-        android:id="@+id/btnNumberFour"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="12dp"
-        android:backgroundTint="@color/white"
-        android:text="4"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnNumberThree"
-        app:layout_constraintStart_toEndOf="@+id/btnNumberThree" />
-
-    <Button
-        android:onClick="getButtonNumberValue"
-        android:id="@+id/btnNumberSix"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="@color/white"
-        android:text="6"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnNumberOne" />
-
-    <Button
-        android:onClick="getButtonNumberValue"
-        android:id="@+id/btnNumberSeven"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="12dp"
-        android:backgroundTint="@color/white"
-        android:text="7"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnNumberSix"
-        app:layout_constraintStart_toEndOf="@+id/btnNumberSix" />
-
-    <Button
-        android:onClick="getButtonNumberValue"
-        android:id="@+id/btnNumberEight"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="12dp"
-        android:backgroundTint="@color/white"
-        android:text="8"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnNumberSeven"
-        app:layout_constraintStart_toEndOf="@+id/btnNumberSeven" />
-
-    <Button
-        android:id="@+id/btnEqual"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:backgroundTint="@color/white"
-        android:onClick="calc"
-        android:text="="
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnNumberNine"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.282"
-        app:layout_constraintStart_toEndOf="@+id/btnNumberNine" />
-
-    <Button
-        android:onClick="getButtonNumberValue"
-        android:id="@+id/btnNumberNine"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="12dp"
-        android:backgroundTint="@color/white"
-        android:text="9"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnNumberEight"
-        app:layout_constraintStart_toEndOf="@+id/btnNumberEight" />
-
-    <Button
-        android:id="@+id/btnPlus"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="@color/white"
-        android:onClick="getOperationName"
-        android:text="+"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnNumberSix" />
-
-    <Button
-        android:id="@+id/btnSub"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="12dp"
-        android:backgroundTint="@color/white"
-        android:onClick="getOperationName"
-        android:text="-"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnPlus"
-        app:layout_constraintStart_toEndOf="@+id/btnPlus" />
-
-    <Button
-        android:id="@+id/btnMultiple"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="12dp"
-        android:backgroundTint="@color/white"
-        android:onClick="getOperationName"
-        android:text="*"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnSub"
-        app:layout_constraintStart_toEndOf="@+id/btnSub" />
-
-    <Button
-        android:id="@+id/btnDivide"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="12dp"
-        android:backgroundTint="@color/white"
-        android:onClick="getOperationName"
-        android:text="/"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnMultiple"
-        app:layout_constraintStart_toEndOf="@+id/btnMultiple" />
-
-    <Button
-        android:id="@+id/btnClear"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="16dp"
-        android:backgroundTint="@color/white"
-        android:onClick="clear"
-        android:text="CLR"
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnDivide"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/btnDivide" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="44dp"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/ic_success" />
+</RelativeLayout>
