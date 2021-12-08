@@ -3,6 +3,7 @@ package com.example.bkd0708k11;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
@@ -106,5 +107,12 @@ public class Session9 extends AppCompatActivity {
 
         System.out.println("Bạn đã chọn giới tính là ");
         System.out.println(checkedGender);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu_action_bar, menu);
+        return true;
     }
 }
