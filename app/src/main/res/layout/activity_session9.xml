@@ -57,10 +57,36 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="36dp"
         android:onClick="getCheckedResult"
         android:text="Lấy kết quả từ checkbox"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cboBoxing" />
+
+
+    <RadioGroup
+        android:layout_width="155dp"
+        android:layout_height="209dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.652"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button">
+
+        <RadioButton
+            android:id="@+id/rdoFemale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onCheckGenderHandler"
+            android:text="Female" />
+
+        <RadioButton
+            android:id="@+id/rdoMale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onCheckGenderHandler"
+            android:text="Male" />
+    </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>
