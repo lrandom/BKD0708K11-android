@@ -4,19 +4,57 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.RadioButton;
+import android.widget.Spinner;
+import android.widget.Toast;
+import android.widget.ToggleButton;
+
+import com.example.bkd0708k11.adapters.PersonAdapter;
+import com.example.bkd0708k11.domains.Person;
 
 import java.util.ArrayList;
 
 public class Session9 extends AppCompatActivity {
     ArrayList<String> checkedHobbies = new ArrayList<>();
     String checkedGender = "";
+    ToggleButton tglConfig;
+    Spinner spnSelectPerson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_session9);
+        tglConfig = findViewById(R.id.tglConfig);
+        tglConfig.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                System.out.println(isChecked);
+            }
+        });
+        spnSelectPerson = findViewById(R.id.spnSelectPerson);
+        ArrayList<Person> fakePersonData = new ArrayList<>();
+        for (int i = 1; i <= 10; i++) {
+            fakePersonData.add(new Person("Nguyen Thanh Nam " + i, 20 + i + ""));
+        }
+        PersonAdapter personAdapter = new PersonAdapter(Session9.this, fakePersonData);
+        spnSelectPerson.setAdapter(personAdapter);
+
+        spnSelectPerson.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(Session9.this, "Bạn đã chọn " + fakePersonData.get(position).getName(),
+                        Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Toast.makeText(Session9.this, "Bạn không chọn gì hết", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     public void onCheckHandler(View view) {
