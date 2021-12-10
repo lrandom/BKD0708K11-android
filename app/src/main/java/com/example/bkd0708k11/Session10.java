@@ -12,10 +12,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 public class Session10 extends AppCompatActivity {
-    Button btnShowContextMenu, btnOpenContextActionBarMenu;
+    Button btnShowContextMenu, btnOpenContextActionBarMenu, btnOpenPopupMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +65,31 @@ public class Session10 extends AppCompatActivity {
         });
 
         registerForContextMenu(btnShowContextMenu);//khi ấn và giữ vào button thì sẽ show ra cái menu
+        btnOpenPopupMenu = findViewById(R.id.btnOpenPopupMenu);
+        btnOpenPopupMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(Session10.this, v);
+                popupMenu.inflate(R.menu.popup_menu);
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.menu_item_1:
+                                Toast.makeText(Session10.this, "Bạn đã chọn item 1", Toast.LENGTH_SHORT).show();
+                                break;
+
+                            case R.id.menu_item_2:
+                                Toast.makeText(Session10.this, "Bạn đã chọn item 2", Toast.LENGTH_SHORT).show();
+                                break;
+                        }
+                        return true;
+                    }
+                });
+                popupMenu.show();
+
+            }
+        });
     }
 
 
