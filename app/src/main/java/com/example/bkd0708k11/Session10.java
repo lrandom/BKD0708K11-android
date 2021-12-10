@@ -1,8 +1,10 @@
 package com.example.bkd0708k11;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.ActionMode;
 import android.view.ContextMenu;
@@ -16,7 +18,7 @@ import android.widget.PopupMenu;
 import android.widget.Toast;
 
 public class Session10 extends AppCompatActivity {
-    Button btnShowContextMenu, btnOpenContextActionBarMenu, btnOpenPopupMenu;
+    Button btnShowContextMenu, btnOpenContextActionBarMenu, btnOpenPopupMenu, btnOpenAlertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +89,32 @@ public class Session10 extends AppCompatActivity {
                     }
                 });
                 popupMenu.show();
+
+            }
+        });
+
+        btnOpenAlertDialog = findViewById(R.id.btnOpenAlertDialog);
+        btnOpenAlertDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Session10.this);
+                builder.setTitle("Cấp báo");
+                builder.setMessage("Bạn đã trúng vietlot 100 tỏi, ko làm mà đòi có ăn thì chỉ có chơi Vietlot. Bạn có muốn nhận giải không ???");
+                builder.setPositiveButton("Có, nhận chứ, đang nghèo", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(Session10.this, "Đã nhận tiền", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                builder.setNegativeButton("Không, mình giàu sẵn rồi", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(Session10.this, "Chê tiền ?? phí !!!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
 
             }
         });
