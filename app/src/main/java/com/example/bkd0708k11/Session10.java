@@ -4,7 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.ActionMode;
 import android.view.ContextMenu;
+import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,13 +15,54 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class Session10 extends AppCompatActivity {
-    Button btnShowContextMenu;
+    Button btnShowContextMenu, btnOpenContextActionBarMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_session10);
         btnShowContextMenu = findViewById(R.id.btnShowContextMenu);
+        btnOpenContextActionBarMenu = findViewById(R.id.btnOpenContextActionBarMenu);
+
+        btnOpenContextActionBarMenu.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Session10.this.startActionMode(new ActionMode.Callback() {
+                    @Override
+                    public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                        MenuInflater menuInflater = getMenuInflater();
+                        menuInflater.inflate(R.menu.context_actionbar_menu, menu);
+                        return true;
+                    }
+
+                    @Override
+                    public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.itemShare:
+                                Toast.makeText(Session10.this, "Bạn đã chọn share item", Toast.LENGTH_SHORT).show();
+                                break;
+
+                            case R.id.itemEdit:
+                                Toast.makeText(Session10.this, "Bạn đã chọn edit item", Toast.LENGTH_SHORT).show();
+                                break;
+                        }
+                        return false;
+                    }
+
+                    @Override
+                    public void onDestroyActionMode(ActionMode mode) {
+
+                    }
+                });
+                return false;
+            }
+        });
+
         registerForContextMenu(btnShowContextMenu);//khi ấn và giữ vào button thì sẽ show ra cái menu
     }
 
