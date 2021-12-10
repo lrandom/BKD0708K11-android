@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.ActionMode;
@@ -14,11 +15,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
 public class Session10 extends AppCompatActivity {
-    Button btnShowContextMenu, btnOpenContextActionBarMenu, btnOpenPopupMenu, btnOpenAlertDialog;
+    Button btnShowContextMenu, btnOpenContextActionBarMenu, btnOpenPopupMenu,
+            btnOpenAlertDialog, btnOpenDatePicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,7 +118,21 @@ public class Session10 extends AppCompatActivity {
 
                 AlertDialog dialog = builder.create();
                 dialog.show();
+            }
+        });
 
+        btnOpenDatePicker = findViewById(R.id.btnOpenDatePicker);
+        btnOpenDatePicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(Session10.this,
+                        new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                                System.out.println(year +"-"+ month+"-" + dayOfMonth + "");
+                            }
+                        }, 2021, 11, 12);
+                datePickerDialog.show();
             }
         });
     }
