@@ -1,9 +1,11 @@
 package com.example.bkd0708k11;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
@@ -113,6 +115,27 @@ public class Session9 extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu_action_bar, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.itemAdd:
+                //code xử lý khi ấn vào add item
+                Toast.makeText(Session9.this, "Bạn đã chọn add item", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.itemFavorites:
+                //code xử lý khi ấn vào favorites item
+                Toast.makeText(Session9.this, "Bạn đã chọn favorites item", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.itemShare:
+                //code xử lý khi ấn vào share item
+                Toast.makeText(Session9.this, "Bạn đã chọn share item", Toast.LENGTH_SHORT).show();
+                break;
+        }
         return true;
     }
 }
