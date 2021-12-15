@@ -31,7 +31,7 @@ public class Session11 extends AppCompatActivity {
         countries.add(new Country("North Korea", "336000", "80000000"));
         countries.add(new Country("Lao", "336000", "4000000"));
         countries.add(new Country("Cambodia", "336000", "15000000"));
-        countries.add(new Country("Philipin", "336000", "80000000"));
+        countries.add(new Country("Philippines", "336000", "80000000"));
 
         AdapterCountry adapterCountry = new AdapterCountry(Session11.this, countries);
         LinearLayoutManager lln = new LinearLayoutManager(Session11.this, LinearLayoutManager.VERTICAL, true);
