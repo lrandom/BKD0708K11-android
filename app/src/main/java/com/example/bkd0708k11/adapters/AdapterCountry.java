@@ -19,6 +19,7 @@ public class AdapterCountry extends RecyclerView.Adapter<AdapterCountry.MyViewHo
     LayoutInflater layoutInflater;
     Context context;
     ArrayList<Country> countries = new ArrayList<>();
+    MyItemClickListener myItemClickListener;
 
     public AdapterCountry(Context context, ArrayList<Country> countries) {
         this.context = context;
@@ -47,15 +48,30 @@ public class AdapterCountry extends RecyclerView.Adapter<AdapterCountry.MyViewHo
         return this.countries.size();
     }
 
+    public interface MyItemClickListener{
+        public void itemClick(View v, int position);
+    }
+
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tvName, tvArea, tvPoplulation;
-
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tvName);
             tvArea = itemView.findViewById(R.id.tvArea);
             tvPoplulation = itemView.findViewById(R.id.tvPopulation);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Viết code xử lý khi người dùng click vào một item
+                    myItemClickListener.itemClick(v,getAdapterPosition());
+                }
+            });
         }
+    }
+
+    public void setOnItemClickListener(MyItemClickListener myItemClickListener) {
+        this.myItemClickListener = myItemClickListener;
     }
 }
 

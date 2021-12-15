@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import com.example.bkd0708k11.adapters.AdapterCountry;
 import com.example.bkd0708k11.domains.Country;
@@ -20,7 +22,7 @@ public class Session11 extends AppCompatActivity {
         setContentView(R.layout.activity_session11);
         RecyclerView rcCountry = findViewById(R.id.rcCountry);
         ArrayList<Country> countries = new ArrayList<>();
-        countries.add(new Country("VietNam", "336000", "100000000"));
+        countries.add(new Country("Viet Nam", "336000", "100000000"));
         countries.add(new Country("Indonesia", "336000", "300000000"));
         countries.add(new Country("USA", "336000", "300000000"));
         countries.add(new Country("China", "336000", "14000000000"));
@@ -34,6 +36,12 @@ public class Session11 extends AppCompatActivity {
         countries.add(new Country("Philippines", "336000", "80000000"));
 
         AdapterCountry adapterCountry = new AdapterCountry(Session11.this, countries);
+        adapterCountry.setOnItemClickListener(new AdapterCountry.MyItemClickListener() {
+            @Override
+            public void itemClick(View v, int position) {
+                Toast.makeText(Session11.this, "Bạn vừa click vào nước "+countries.get(position).getName(), Toast.LENGTH_SHORT).show();
+            }
+        });
         LinearLayoutManager lln = new LinearLayoutManager(Session11.this, LinearLayoutManager.VERTICAL, true);
         //GridLayoutManager gln = new GridLayoutManager(Session11.this,3,RecyclerView.VERTICAL,true);
         rcCountry.setLayoutManager(lln);
