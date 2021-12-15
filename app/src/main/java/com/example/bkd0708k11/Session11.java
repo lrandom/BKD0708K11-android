@@ -1,7 +1,6 @@
 package com.example.bkd0708k11;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,7 +14,6 @@ import com.example.bkd0708k11.domains.Country;
 import java.util.ArrayList;
 
 public class Session11 extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +37,7 @@ public class Session11 extends AppCompatActivity {
         adapterCountry.setOnItemClickListener(new AdapterCountry.MyItemClickListener() {
             @Override
             public void itemClick(View v, int position) {
-                Toast.makeText(Session11.this, "Bạn vừa click vào nước "+countries.get(position).getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Session11.this, "Bạn vừa click vào nước " + countries.get(position).getName(), Toast.LENGTH_SHORT).show();
             }
         });
         LinearLayoutManager lln = new LinearLayoutManager(Session11.this, LinearLayoutManager.VERTICAL, true);
