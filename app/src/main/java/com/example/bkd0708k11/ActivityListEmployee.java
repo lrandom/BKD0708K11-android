@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import com.example.bkd0708k11.adapters.AdapterEmployee;
 import com.example.bkd0708k11.domains.Employee;
+import com.example.bkd0708k11.services.ApiService;
+import com.example.bkd0708k11.services.RestClient;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -20,6 +22,10 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ActivityListEmployee extends AppCompatActivity {
     RecyclerView rcEmployee;
@@ -36,10 +42,28 @@ public class ActivityListEmployee extends AppCompatActivity {
         rcEmployee.setLayoutManager(linearLayoutManager);
         rcEmployee.setAdapter(adapterEmployee);
 
-        new GetEmployeesAsyncTask("http://192.168.1.5/employee_services/GetData.php").execute();
+        /* new GetEmployeesAsyncTask("http://192.168.1.5/employee_services/GetData.php").execute();*/
+
+        ApiService apiService = RestClient.getApiService();
+        Call<ArrayList<Employee>> call = apiService.getEmployees();
+        call.enqueue(new Callback<ArrayList<Employee>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Employee>> call, Response<ArrayList<Employee>> response) {
+                ArrayList<Employee> tmpEmployees = response.body();
+                for (Employee employee : tmpEmployees) {
+                    employees.add(employee);
+                }
+                adapterEmployee.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Employee>> call, Throwable t) {
+
+            }
+        });
     }
 
-    public class GetEmployeesAsyncTask extends AsyncTask<Void, Long, String> {
+    /*public class GetEmployeesAsyncTask extends AsyncTask<Void, Long, String> {
         String url;
 
         public GetEmployeesAsyncTask(String url) {
@@ -95,6 +119,6 @@ public class ActivityListEmployee extends AppCompatActivity {
             Toast.makeText(ActivityListEmployee.this, "Bắt đầu tải dữ liệu",
                     Toast.LENGTH_LONG).show();
         }
-    }
+    }*/
 
 }
