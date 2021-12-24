@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:title="Item 1" android:id="@+id/menu_item_1" />
-    <item android:title="Item 2" android:id="@+id/menu_item_2"/>
+    <item
+        android:id="@+id/item_delete"
+        android:title="@string/delete" />
+    <item
+        android:id="@+id/item_edit"
+        android:title="@string/edit" />
 </menu>

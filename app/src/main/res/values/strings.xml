@@ -1,33 +1,15 @@
 <resources>
     <string name="app_name">BKD0708K11</string>
-    <string name="hello_world">Xin chào thế giới</string>
-    <string name="text_1">Text 1</string>
-    <string name="signup">SignUp</string>
-    <string name="phone">Phone</string>
-    <string name="user_name">Username</string>
-    <string name="full_name">Fullname</string>
-    <string name="password">Password</string>
+    <string name="add">Add</string>
+    <string name="title">title</string>
+    <string name="content">content</string>
     <string name="submit">Submit</string>
-    <string name="para">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,
-        when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-        and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,
-        when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-        and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,
-        when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-        and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-    </string>
-    <string name="next">Next</string>
-    <string name="confirm">Confirm</string>
-    <string name="welcome">Welcome</string>
-    <string name="signup_success">Signup Success</string>
-
+    <string name="validate_alert_message">Please fill all input before submit data</string>
+    <string name="agree">Agree</string>
+    <string name="add_successfully">Add successfully</string>
+    <string name="delete_successfully">Delete successfully</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="confirm_delete">Are you sure you want to delete this note ?</string>
+    <string name="cancel">Cancel</string>
 </resources>
