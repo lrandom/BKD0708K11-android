@@ -23,4 +23,13 @@ public interface ApiService {
 
     @GET("deleteNote.php")
     Call<JSONObject> deleteNote(@Query("id") String id);//deleteNote.php?id=<>
+
+    @GET("findById.php")
+    Call<Note> findById(@Query("id") String id);//findById.php?id=<>
+
+    @POST("editNote.php")
+    @FormUrlEncoded
+    Call<JSONObject> editNote(@Field("id") String id,
+                              @Field("title") String title,
+                              @Field("content") String content);
 }

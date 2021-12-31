@@ -2,6 +2,7 @@ package com.example.bkd0708k11.adapters;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bkd0708k11.R;
+import com.example.bkd0708k11.activities.ActivityDetailNote;
+import com.example.bkd0708k11.activities.ActivityEditNote;
 import com.example.bkd0708k11.domains.Note;
 import com.example.bkd0708k11.services.ApiService;
 import com.example.bkd0708k11.services.RestClient;
@@ -96,6 +99,9 @@ public class AdapterNote extends RecyclerView.Adapter<AdapterNote.EmployeeViewHo
                                 break;
 
                             case R.id.item_edit:
+                                Intent intent = new Intent(context, ActivityEditNote.class);
+                                intent.putExtra("ID", id);
+                                context.startActivity(intent);
                                 break;
                         }
                         return false;
@@ -128,6 +134,15 @@ public class AdapterNote extends RecyclerView.Adapter<AdapterNote.EmployeeViewHo
             super(itemView);
             this.tvName = itemView.findViewById(R.id.tvTitle);
             this.btnMenu = itemView.findViewById(R.id.btnMenu);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, ActivityDetailNote.class);
+                    intent.putExtra("TITLE", notes.get(getPosition()).getTitle());
+                    intent.putExtra("CONTENT", notes.get(getPosition()).getContent());
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }

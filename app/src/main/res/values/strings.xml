@@ -12,4 +12,6 @@
     <string name="edit">Edit</string>
     <string name="confirm_delete">Are you sure you want to delete this note ?</string>
     <string name="cancel">Cancel</string>
+    <string name="load_success">Load Success</string>
+    <string name="update_success">Update Success</string>
 </resources>
