@@ -14,21 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BKD0708K11">
         <activity
-            android:name=".activities.ActivityDetailNote"
-            android:exported="false" />
-        <activity
-            android:name=".activities.ActivityEditNote"
-            android:exported="false" />
-        <activity
-            android:name=".activities.ActivityAddNote"
-            android:exported="false" />
-        <activity
-            android:name=".activities.ActivityListNote"
+            android:name=".activities.ActivityDemoBroadcast"
             android:exported="true">
             <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"></category>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
