@@ -28,8 +28,10 @@ public class AcitivityDemoBoundService extends AppCompatActivity {
         btnBindServiceToActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AcitivityDemoBoundService.this, BoundService.class);
-                bindService(intent, serviceConnection, BIND_AUTO_CREATE);
+                //Intent intent = new Intent(AcitivityDemoBoundService.this, BoundService.class);
+                //bindService(intent, serviceConnection, BIND_AUTO_CREATE);
+                Intent intent = new Intent(AcitivityDemoBoundService.this, MyIntentService.class);
+                startService(intent);
             }
         });
 

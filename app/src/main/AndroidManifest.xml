@@ -34,7 +34,8 @@
             android:exported="false"></activity>
 
         <service android:name=".activities.StartedService" />
-        <service android:name=".activities.BoundService"/>
+        <service android:name=".activities.BoundService" />
+        <service android:name=".activities.MyIntentService" />
     </application>
 
 </manifest>
