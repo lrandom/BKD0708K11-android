@@ -3,6 +3,7 @@ package com.example.bkd0708k11.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -42,7 +43,8 @@ public class ActivityDemoBroadcast extends AppCompatActivity {
                 Intent intent = new Intent(ACTION_SEND_FULL_NAME);
                 intent.putExtra("FULL_NAME", "Nguyen Thanh Luan");
                 LocalBroadcastManager.getInstance(ActivityDemoBroadcast.this).sendBroadcast(intent);
-                //sendBroadcast(intent);
+                sendBroadcast(intent, Manifest.permission.BROADCAST_SMS);
+
             }
         });
 
