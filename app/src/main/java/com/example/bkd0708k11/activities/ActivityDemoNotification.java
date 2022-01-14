@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RemoteViews;
 
 import com.example.bkd0708k11.R;
 
@@ -39,6 +40,13 @@ public class ActivityDemoNotification extends AppCompatActivity {
                 showNotification();
             }
         });
+
+        btnHideNotification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hideNotification();
+            }
+        });
     }
 
     public void showNotification() {
@@ -59,11 +67,15 @@ public class ActivityDemoNotification extends AppCompatActivity {
                     PendingIntent.FLAG_UPDATE_CURRENT
             );
 
+            RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.notification_layout);
+            remoteViews.setOnClickPendingIntent(R.id.btnOpenActivity, pendingIntentStartActivityTwo);
             notificationBuilder.setSmallIcon(R.drawable.ic_android_black_24dp)
-                    .setContentTitle("Thong bao")
-                    .setContentText("Ban tin nhan moi")
-                    .setContentIntent(pendingIntentStartActivityTwo)
-                    .addAction(R.drawable.ic_next, "Open Activity", pendingIntentStartActivityTwo);
+                    //.setContentTitle("Thong bao")
+                    //.setContentText("Ban tin nhan moi")
+                    .setCustomBigContentView(remoteViews)
+                    .setCustomContentView(remoteViews);
+                   /* .setContentIntent(pendingIntentStartActivityTwo)
+                    .addAction(R.drawable.ic_next, "Open Activity", pendingIntentStartActivityTwo);*/
 
             notification = notificationBuilder.build();
             notificationManager.notify(NOTIFICATION_ID, notification);
@@ -76,5 +88,9 @@ public class ActivityDemoNotification extends AppCompatActivity {
             notification = notificationBuilder.build();
             notificationManager.notify(NOTIFICATION_ID, notification);
         }
+    }
+
+    public void hideNotification() {
+        notificationManager.cancel(NOTIFICATION_ID);
     }
 }
