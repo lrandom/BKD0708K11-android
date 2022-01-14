@@ -6,6 +6,8 @@ import androidx.core.app.NotificationCompat;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -48,9 +50,21 @@ public class ActivityDemoNotification extends AppCompatActivity {
             notificationManager.createNotificationChannel(notificationChannel);
 
             notificationBuilder = new NotificationCompat.Builder(ActivityDemoNotification.this, CHANNEL_ID);
+
+            Intent intent = new Intent(ActivityDemoNotification.this, SecondActivity.class);
+            PendingIntent pendingIntentStartActivityTwo = PendingIntent.getActivity(
+                    ActivityDemoNotification.this,
+                    NOTIFICATION_ID,
+                    intent,
+                    PendingIntent.FLAG_UPDATE_CURRENT
+            );
+
             notificationBuilder.setSmallIcon(R.drawable.ic_android_black_24dp)
                     .setContentTitle("Thong bao")
-                    .setContentText("Ban tin nhan moi");
+                    .setContentText("Ban tin nhan moi")
+                    .setContentIntent(pendingIntentStartActivityTwo)
+                    .addAction(R.drawable.ic_next, "Open Activity", pendingIntentStartActivityTwo);
+
             notification = notificationBuilder.build();
             notificationManager.notify(NOTIFICATION_ID, notification);
         } else {
