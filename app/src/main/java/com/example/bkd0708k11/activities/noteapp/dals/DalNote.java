@@ -45,7 +45,7 @@ public class DalNote {
                 //lấy dữ liệu ra
                 @SuppressLint("Range") Long id = cursor.getLong(cursor.getColumnIndex("id"));
                 @SuppressLint("Range") String title = cursor.getString(cursor.getColumnIndex("title"));
-                @SuppressLint("Range")  String content = cursor.getString(cursor.getColumnIndex("content"));
+                @SuppressLint("Range") String content = cursor.getString(cursor.getColumnIndex("content"));
                 Note note = new Note();
                 note.setId(id);
                 note.setTitle(title);
