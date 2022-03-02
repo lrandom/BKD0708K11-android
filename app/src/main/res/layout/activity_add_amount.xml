@@ -4,62 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     android:padding="10dp"
     tools:context=".activities.noteapp.activities.AddAmountActivity">
 
-    <EditText
-        android:hint="Ngày"
-        android:background="@drawable/style_input_text"
-        android:id="@+id/edtFromDate"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"></EditText>
 
     <EditText
-        android:hint="Số tiền"
-        android:id="@+id/edtToDate"
-        android:background="@drawable/style_input_text"
+        android:id="@+id/edtAmount"
         android:layout_width="match_parent"
+        android:layout_height="45dp"
         android:layout_marginTop="50dp"
-        android:layout_height="45dp"></EditText>
+        android:background="@drawable/style_input_text"
+        android:hint="Số tiền"></EditText>
 
+    <EditText
+        android:id="@+id/edtPurpose"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/style_input_text"
+        android:hint="Mục đích"></EditText>
+
+    <EditText
+        android:id="@+id/edtInputDate"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/style_input_text"
+        android:hint="Ngày"></EditText>
 
 
     <RadioGroup
-        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:gravity="center"
-            >
+            android:orientation="horizontal">
+
             <RadioButton
+                android:id="@+id/rdoCollect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Thu"
                 android:layout_marginRight="40dp"
-                >
-
+                android:hint="Thu">
             </RadioButton>
 
             <RadioButton
+                android:id="@+id/rdoSpend"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Chi"
                 android:layout_marginLeft="40dp"
-                >
-            </RadioButton>
+                android:hint="Chi"></RadioButton>
         </LinearLayout>
     </RadioGroup>
 
     <Button
-        android:layout_marginTop="50dp"
-        android:layout_width="match_parent"
-        android:text="Thêm"
         android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:backgroundTint="#219653"
-        android:layout_height="wrap_content"></Button>
+        android:text="Thêm"></Button>
 </LinearLayout>
