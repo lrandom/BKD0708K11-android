@@ -13,11 +13,16 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE notes(\n" +
+   /*     db.execSQL("CREATE TABLE notes(\n" +
                 "     id INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
                 "\t title TEXT(200),\n" +
                 "\t content TEXT(1000)\n" +
-                ")\n");
+                ")\n");*/
+
+        db.execSQL("CREATE TABLE tb_statements(id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "amount FLOAT,purpose TAEXT(200)," +
+                " isSpend INTEGER DEFAULT 1," +
+                " dt datetime default current_timestamp)");
     }
 
     @Override
