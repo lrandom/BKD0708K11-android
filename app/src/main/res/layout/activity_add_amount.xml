@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="10dp"
+    tools:context=".activities.noteapp.activities.AddAmountActivity">
+
+    <EditText
+        android:hint="Ngày"
+        android:background="@drawable/style_input_text"
+        android:id="@+id/edtFromDate"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"></EditText>
+
+    <EditText
+        android:hint="Số tiền"
+        android:id="@+id/edtToDate"
+        android:background="@drawable/style_input_text"
+        android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_height="45dp"></EditText>
+
+
+
+    <RadioGroup
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Thu"
+                android:layout_marginRight="40dp"
+                >
+
+            </RadioButton>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Chi"
+                android:layout_marginLeft="40dp"
+                >
+            </RadioButton>
+        </LinearLayout>
+    </RadioGroup>
+
+    <Button
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:text="Thêm"
+        android:id="@+id/btnSubmit"
+        android:backgroundTint="#219653"
+        android:layout_height="wrap_content"></Button>
+</LinearLayout>
