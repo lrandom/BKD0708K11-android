@@ -30,9 +30,22 @@ public class DalStatementItem {
     }
 
 
-    public ArrayList<StatementItem> getStatementItems() {
+    public ArrayList<StatementItem> getStatementItems(String fromDate, String toDate) {
+        String query = "SELECT * FROM tb_statements";
+        if (fromDate != null && toDate != null) {
+            query += " WHERE dt BETWEEN " + fromDate + " AND " + toDate;
+        }
+        if (fromDate != null && toDate == null) {
+            query += " WHERE dt >= " + fromDate;
+        }
+        if (fromDate == null && toDate != null) {
+            query += " WHERE dt <=" + toDate;
+        }
+
+
         ArrayList<StatementItem> statementItems = new ArrayList<>();
-        Cursor cursor = this.db.rawQuery("SELECT * FROM tb_statements", null);
+
+        Cursor cursor = this.db.rawQuery(query, null);
         if (cursor.moveToFirst()) {
             do {
                 //lấy dữ liệu ra
@@ -56,9 +69,19 @@ public class DalStatementItem {
     //SUM = TÍNH TỔNG
     //lấy tổng thu
     @SuppressLint("Range")
-    public Double getCollectAmount() {
+    public Double getCollectAmount(String fromDate, String toDate) {
         Double totalCollect = 0.0;
-        Cursor cursor = this.db.rawQuery("SELECT SUM(amount) AS total_collect FROM tb_statements WHERE isSpend=0", null);
+        String query = "SELECT SUM(amount) AS total_collect FROM tb_statements WHERE isSpend=0 ";
+        if (fromDate != null && toDate != null) {
+            query += "AND dt BETWEEN " + fromDate + " AND " + toDate;
+        }
+        if (fromDate != null && toDate == null) {
+            query += "AND dt >= " + fromDate;
+        }
+        if (fromDate == null && toDate != null) {
+            query += "AND dt <=" + toDate;
+        }
+        Cursor cursor = this.db.rawQuery(query, null);
         if (cursor.moveToFirst()) {
             totalCollect = cursor.getDouble(cursor.getColumnIndex("total_collect"));
         }
@@ -66,9 +89,19 @@ public class DalStatementItem {
     }
 
     @SuppressLint("Range")
-    public Double getSpentAmount() {
+    public Double getSpentAmount(String fromDate, String toDate) {
         Double totalSpent = 0.0;
-        Cursor cursor = this.db.rawQuery("SELECT SUM(amount) AS total_collect FROM tb_statements WHERE isSpend=1", null);
+        String query = "SELECT SUM(amount) AS total_collect FROM tb_statements WHERE isSpend=1 ";
+        if (fromDate != null && toDate != null) {
+            query += "AND dt BETWEEN " + fromDate + " AND " + toDate;
+        }
+        if (fromDate != null && toDate == null) {
+            query += "AND dt >= " + fromDate;
+        }
+        if (fromDate == null && toDate != null) {
+            query += "AND dt <=" + toDate;
+        }
+        Cursor cursor = this.db.rawQuery(query, null);
         if (cursor.moveToFirst()) {
             totalSpent = cursor.getDouble(cursor.getColumnIndex("total_collect"));
         }

@@ -1,6 +1,7 @@
 package com.example.bkd0708k11.activities.noteapp.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +33,7 @@ public class StatementItemAdapter extends RecyclerView.Adapter<StatementItemAdap
     @NonNull
     @Override
     public StatementItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = layoutInflater.inflate(R.layout.note_item, parent, false);
+        View v = layoutInflater.inflate(R.layout.statement_item, parent, false);
         StatementItemAdapter.StatementItemViewHolder myViewHolder = new StatementItemViewHolder(v);
         return myViewHolder;
     }
@@ -41,7 +42,16 @@ public class StatementItemAdapter extends RecyclerView.Adapter<StatementItemAdap
     public void onBindViewHolder(@NonNull StatementItemViewHolder holder, int position) {
         StatementItem statementItem = statementItems.get(position);
         holder.tvPurpose.setText(statementItem.getPurpose());
-        holder.tvAmount.setText(Helpers.formatCurrency(statementItem.getAmount()));
+        if (statementItem.getIsSpend() == 1) {
+            //chi
+            holder.tvAmount.setText("-" + Helpers.formatCurrency(statementItem.getAmount()));
+            holder.tvAmount.setTextColor(Color.parseColor("#EB5757"));
+        } else {
+            //thu
+            holder.tvAmount.setText("+" + Helpers.formatCurrency(statementItem.getAmount()));
+            holder.tvAmount.setTextColor(Color.parseColor("#219653"));
+        }
+
         holder.tvDate.setText(statementItem.getDate());
     }
 
