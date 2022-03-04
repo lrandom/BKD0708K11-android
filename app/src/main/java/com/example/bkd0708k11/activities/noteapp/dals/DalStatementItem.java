@@ -20,7 +20,7 @@ public class DalStatementItem {
         this.db = dbHelper.getWritableDatabase();
     }
 
-    public void addStatement(String purpose, float amount, String inputDate, int isSpend) {
+    public void addStatement(String purpose, double amount, String inputDate, int isSpend) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("purpose", purpose);
         contentValues.put("amount", amount);

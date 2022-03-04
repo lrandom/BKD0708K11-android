@@ -9,14 +9,14 @@
     android:padding="10dp"
     tools:context=".activities.noteapp.activities.AddAmountActivity">
 
-
     <EditText
         android:id="@+id/edtAmount"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginTop="50dp"
         android:background="@drawable/style_input_text"
-        android:hint="Số tiền"></EditText>
+        android:hint="Số tiền"
+        android:inputType="number"></EditText>
 
     <EditText
         android:id="@+id/edtPurpose"
@@ -35,15 +35,17 @@
         android:hint="Ngày"></EditText>
 
 
-    <RadioGroup
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <LinearLayout
+        <RadioGroup
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
             android:orientation="horizontal">
 
             <RadioButton
@@ -51,17 +53,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="40dp"
-                android:hint="Thu">
-            </RadioButton>
+                android:hint="Thu"
+                android:onClick="selectRadioType"></RadioButton>
 
             <RadioButton
                 android:id="@+id/rdoSpend"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
-                android:hint="Chi"></RadioButton>
-        </LinearLayout>
-    </RadioGroup>
+                android:checked="true"
+                android:hint="Chi"
+                android:onClick="selectRadioType"></RadioButton>
+        </RadioGroup>
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnSubmit"
@@ -69,5 +73,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:backgroundTint="#219653"
+        android:onClick="addAmount"
         android:text="Thêm"></Button>
 </LinearLayout>

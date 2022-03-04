@@ -20,7 +20,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 ")\n");*/
 
         db.execSQL("CREATE TABLE tb_statements(id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "amount FLOAT,purpose TAEXT(200)," +
+                "amount FLOAT,purpose TEXT(200)," +
                 " isSpend INTEGER DEFAULT 1," +
                 " dt datetime default current_timestamp)");
     }
