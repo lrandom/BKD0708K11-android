@@ -33,13 +33,13 @@ public class DalStatementItem {
     public ArrayList<StatementItem> getStatementItems(String fromDate, String toDate) {
         String query = "SELECT * FROM tb_statements";
         if (fromDate != null && toDate != null) {
-            query += " WHERE dt BETWEEN " + fromDate + " AND " + toDate;
+            query += " WHERE dt BETWEEN '" + fromDate + "' AND '" + toDate + "'";
         }
         if (fromDate != null && toDate == null) {
-            query += " WHERE dt >= " + fromDate;
+            query += " WHERE dt >= '" + fromDate + "'";
         }
         if (fromDate == null && toDate != null) {
-            query += " WHERE dt <=" + toDate;
+            query += " WHERE dt <= '" + toDate + "'";
         }
 
 
@@ -73,13 +73,13 @@ public class DalStatementItem {
         Double totalCollect = 0.0;
         String query = "SELECT SUM(amount) AS total_collect FROM tb_statements WHERE isSpend=0 ";
         if (fromDate != null && toDate != null) {
-            query += "AND dt BETWEEN " + fromDate + " AND " + toDate;
+            query += "AND dt BETWEEN '" + fromDate + "' AND '" + toDate + "'";
         }
         if (fromDate != null && toDate == null) {
-            query += "AND dt >= " + fromDate;
+            query += "AND dt >= '" + fromDate + "'";
         }
         if (fromDate == null && toDate != null) {
-            query += "AND dt <=" + toDate;
+            query += "AND dt <= '" + toDate + "'";
         }
         Cursor cursor = this.db.rawQuery(query, null);
         if (cursor.moveToFirst()) {
@@ -93,13 +93,13 @@ public class DalStatementItem {
         Double totalSpent = 0.0;
         String query = "SELECT SUM(amount) AS total_collect FROM tb_statements WHERE isSpend=1 ";
         if (fromDate != null && toDate != null) {
-            query += "AND dt BETWEEN " + fromDate + " AND " + toDate;
+            query += "AND dt BETWEEN '" + fromDate + "' AND '" + toDate + "'";
         }
         if (fromDate != null && toDate == null) {
-            query += "AND dt >= " + fromDate;
+            query += "AND dt >= '" + fromDate + "'";
         }
         if (fromDate == null && toDate != null) {
-            query += "AND dt <=" + toDate;
+            query += "AND dt <= '" + toDate + "'";
         }
         Cursor cursor = this.db.rawQuery(query, null);
         if (cursor.moveToFirst()) {
