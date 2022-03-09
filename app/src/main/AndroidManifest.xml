@@ -18,6 +18,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BKD0708K11">
         <activity
+            android:name=".activities.noteapp.activities.ActivityDetail"
+            android:exported="false" />
+        <activity
+            android:name=".activities.noteapp.activities.ActivityNewsHome"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".activities.noteapp.activities.AddAmountActivity"
             android:exported="false" />
         <activity
