@@ -20,6 +20,7 @@ public class AdapterNews extends RecyclerView.Adapter<AdapterNews.StatementItemV
     LayoutInflater layoutInflater;
     Context context;
     ArrayList<Article> articles;
+    OnItemClickListener onItemClickListener;
 
     public AdapterNews(Context context, ArrayList<Article> articles) {
         this.context = context;
@@ -42,6 +43,13 @@ public class AdapterNews extends RecyclerView.Adapter<AdapterNews.StatementItemV
         holder.tvTitle.setText(article.getTitle());
         holder.tvDescription.setText(article.getDescription());
         Glide.with(context).load(article.getUrlToImage()).into(holder.imgThumb);
+        holder.newItemView.setTag(position);
+        holder.newItemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onItemClickListener.onItemClick((int) v.getTag());
+            }
+        });
     }
 
     @Override
@@ -49,15 +57,26 @@ public class AdapterNews extends RecyclerView.Adapter<AdapterNews.StatementItemV
         return this.articles.size();
     }
 
+    public interface OnItemClickListener {
+        public void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
+
+
     public class StatementItemViewHolder extends RecyclerView.ViewHolder {
         public TextView tvTitle, tvDescription;
         public ImageView imgThumb;
+        public View newItemView;
 
         public StatementItemViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvDescription = itemView.findViewById(R.id.tvDescription);
             imgThumb = itemView.findViewById(R.id.imgThumb);
+            newItemView = itemView;
         }
     }
 }

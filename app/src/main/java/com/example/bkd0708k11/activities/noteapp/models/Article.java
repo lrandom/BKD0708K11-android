@@ -1,6 +1,8 @@
 package com.example.bkd0708k11.activities.noteapp.models;
 
-public class Article {
+import java.io.Serializable;
+
+public class Article implements Serializable {
     private String author,
             title,
             description,

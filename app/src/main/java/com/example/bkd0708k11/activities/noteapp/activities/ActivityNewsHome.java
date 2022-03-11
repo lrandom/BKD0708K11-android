@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -31,6 +32,14 @@ public class ActivityNewsHome extends AppCompatActivity {
         setContentView(R.layout.activity_news_home);
         rcListNews = findViewById(R.id.rcListNews);
         adapterNews = new AdapterNews(ActivityNewsHome.this, articles);
+        adapterNews.setOnItemClickListener(new AdapterNews.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Intent intent = new Intent(ActivityNewsHome.this, ActivityDetail.class);
+                intent.putExtra("ARTICLE", articles.get(position));
+                startActivity(intent);
+            }
+        });
         rcListNews.setLayoutManager(new LinearLayoutManager(ActivityNewsHome.this, LinearLayoutManager.VERTICAL, false));
         rcListNews.setAdapter(adapterNews);
 
@@ -52,7 +61,7 @@ public class ActivityNewsHome extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<DataNews> call, Throwable t) {
-                Log.d("HUHU", "onFailure: "+t.getMessage());
+                Log.d("HUHU", "onFailure: " + t.getMessage());
             }
         });
     }
