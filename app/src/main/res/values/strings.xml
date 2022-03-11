@@ -16,4 +16,5 @@
     <string name="update_success">Update Success</string>
     <string name="search_title">Search Title</string>
     <string name="search_hint">Type your keyword here</string>
+    <string name="share">Share</string>
 </resources>

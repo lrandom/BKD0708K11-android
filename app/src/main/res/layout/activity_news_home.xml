@@ -6,10 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".activities.noteapp.activities.ActivityNewsHome">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcListNews"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        
-    </androidx.recyclerview.widget.RecyclerView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcListNews"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </androidx.recyclerview.widget.RecyclerView>
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+    </FrameLayout>
+
 </LinearLayout>

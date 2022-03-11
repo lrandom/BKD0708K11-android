@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.SearchView;
 
 import com.example.bkd0708k11.R;
@@ -30,12 +32,14 @@ public class ActivityNewsHome extends AppCompatActivity {
     ArrayList<Article> articles = new ArrayList<>();
     AdapterNews adapterNews;
     String keyword = "covid";
+    ProgressBar loading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_home);
         rcListNews = findViewById(R.id.rcListNews);
+        loading = findViewById(R.id.loading);
         adapterNews = new AdapterNews(ActivityNewsHome.this, articles);
         adapterNews.setOnItemClickListener(new AdapterNews.OnItemClickListener() {
             @Override
@@ -56,6 +60,7 @@ public class ActivityNewsHome extends AppCompatActivity {
         call.enqueue(new Callback<DataNews>() {
             @Override
             public void onResponse(Call<DataNews> call, Response<DataNews> response) {
+                loading.setVisibility(View.GONE);
                 DataNews dataNews = response.body();
                 System.out.println(response.toString());
                 ArrayList<Article> respArticles = dataNews.getArticles();
