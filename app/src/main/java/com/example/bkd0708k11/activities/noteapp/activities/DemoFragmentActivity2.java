@@ -40,4 +40,8 @@ public class DemoFragmentActivity2 extends AppCompatActivity {
         });
 
     }
+
+    public void callFromFragment1(String params) {
+        System.out.println(params);
+    }
 }

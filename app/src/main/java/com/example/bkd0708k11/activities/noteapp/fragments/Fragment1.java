@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.bkd0708k11.R;
+import com.example.bkd0708k11.activities.noteapp.activities.DemoFragmentActivity2;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +29,7 @@ public class Fragment1 extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    DemoFragmentActivity2 demoFragmentActivity2;
 
     public Fragment1() {
         // Required empty public constructor
@@ -62,6 +65,7 @@ public class Fragment1 extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        demoFragmentActivity2 = (DemoFragmentActivity2) getActivity();
         System.out.println(TAG + "onCreate");
     }
 
@@ -70,6 +74,14 @@ public class Fragment1 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         System.out.println(TAG + "onCreateView");
-        return inflater.inflate(R.layout.fragment_1, container, false);
+        View view = inflater.inflate(R.layout.fragment_1, container, false);
+        Button callToDemoFragmentActivity2 = view.findViewById(R.id.btnCallToActivity);
+        callToDemoFragmentActivity2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                demoFragmentActivity2.callFromFragment1("Hi there, I am from fragment 1");
+            }
+        });
+        return view;
     }
 }
