@@ -18,24 +18,36 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BKD0708K11">
         <activity
-            android:name=".activities.noteapp.activities.ActivitySearch"
-            android:exported="true"
-            >
+            android:name=".activities.noteapp.activities.DemoFragmentActivity2"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity
+            android:name=".activities.noteapp.activities.DemoFragmentAcitivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.noteapp.activities.ActivitySearch"
+            android:exported="true" />
         <activity
             android:name=".activities.noteapp.activities.ActivityDetail"
             android:exported="false" />
-
         <activity
             android:name=".activities.noteapp.activities.ActivityNewsHome"
             android:exported="true"
-            android:launchMode="singleTop"
-            >
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
